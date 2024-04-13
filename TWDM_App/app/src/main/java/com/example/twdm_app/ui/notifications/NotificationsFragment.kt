@@ -1,6 +1,7 @@
 package com.example.twdm_app.ui.notifications
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,6 +33,11 @@ class NotificationsFragment : Fragment() {
         notificationsViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
+
+       binding.button2.setOnClickListener {
+           Log.d("Button", "Clicked")
+       }
+
         return root
     }
 
