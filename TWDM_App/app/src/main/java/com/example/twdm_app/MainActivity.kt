@@ -23,12 +23,20 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         if (checkSelfPermission(android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            Log.i("permissions", "Asking for location...")
+            Log.i("permissions", "Asking for coarse location...")
             requestPermissions(arrayOf(android.Manifest.permission.ACCESS_COARSE_LOCATION), 87)
         }
         else
         {
-            Log.i("permissions", "Location info already granted!")
+            Log.i("permissions", "Location coarse info already granted!")
+        }
+        if (checkSelfPermission(android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            Log.i("permissions", "Asking for fine location...")
+            requestPermissions(arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), 87)
+        }
+        else
+        {
+            Log.i("permissions", "Location fine info already granted!")
         }
         if (checkSelfPermission(android.Manifest.permission.CHANGE_WIFI_STATE) != PackageManager.PERMISSION_GRANTED) {
             Log.i("permissions", "Asking for wifi...")
