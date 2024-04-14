@@ -1,5 +1,6 @@
 package com.example.twdm_app
 
+import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
@@ -22,25 +23,25 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        if (checkSelfPermission(android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        if (checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             Log.i("permissions", "Asking for coarse location...")
-            requestPermissions(arrayOf(android.Manifest.permission.ACCESS_COARSE_LOCATION), 87)
+            requestPermissions(arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION), 87)
         }
         else
         {
             Log.i("permissions", "Location coarse info already granted!")
         }
-        if (checkSelfPermission(android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             Log.i("permissions", "Asking for fine location...")
-            requestPermissions(arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), 87)
+            requestPermissions(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 87)
         }
         else
         {
             Log.i("permissions", "Location fine info already granted!")
         }
-        if (checkSelfPermission(android.Manifest.permission.CHANGE_WIFI_STATE) != PackageManager.PERMISSION_GRANTED) {
+        if (checkSelfPermission(Manifest.permission.CHANGE_WIFI_STATE) != PackageManager.PERMISSION_GRANTED) {
             Log.i("permissions", "Asking for wifi...")
-            requestPermissions(arrayOf(android.Manifest.permission.CHANGE_WIFI_STATE), 87)
+            requestPermissions(arrayOf(Manifest.permission.CHANGE_WIFI_STATE), 87)
         }
         else
         {

@@ -20,6 +20,7 @@ import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.twdm_app.databinding.FragmentDashboardBinding
 
 class DashboardFragment : Fragment() {
@@ -86,6 +87,14 @@ class DashboardFragment : Fragment() {
     private fun scanSuccess(context: Context) {
         val wifiManager = context.getSystemService(Context.WIFI_SERVICE) as WifiManager
         val results = wifiManager.scanResults
+        val data = ArrayList<NetworkItemViewModel>()
+        for (i in results)
+        {
+            data.add(NetworkItemViewModel(i.SSID))
+        }
+        val adapter = NetworkItemAdapter(data)
+        binding.recyclerView.layoutManager = LinearLayoutManager(this.context)
+        binding.recyclerView.adapter = adapter
         Log.i("WIFI", results.toString())
     }
 
