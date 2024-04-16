@@ -6,7 +6,6 @@
 *.aux
 *.fdb_latexmk
 *.blg
-*.png
 *.fls
 *.synctex.gz
 documentatie.pdf
