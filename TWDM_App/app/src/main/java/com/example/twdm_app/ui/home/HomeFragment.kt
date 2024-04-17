@@ -5,6 +5,7 @@ import android.net.wifi.WifiInfo
 import android.net.wifi.WifiManager
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -42,6 +43,7 @@ class HomeFragment : Fragment() {
         binding.button3.setOnClickListener {
             val wifiManager = this.context?.getSystemService(Context.WIFI_SERVICE) as WifiManager;
             val wifiInfo = wifiManager.connectionInfo;
+            Log.i("WIFI", wifiInfo.toString());
             if (wifiInfo !== null)
             {
                 homeViewModel.onWifiUpdate(wifiInfo.toString().replace(",","\n"))
