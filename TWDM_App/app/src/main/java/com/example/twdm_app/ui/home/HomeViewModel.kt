@@ -7,7 +7,13 @@ import androidx.lifecycle.ViewModel
 class HomeViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+        value = "Wi-fi data not available"
     }
     val text: LiveData<String> = _text
+
+    fun onWifiUpdate(info: String)
+    {
+        _text.value = info;
+    }
+
 }

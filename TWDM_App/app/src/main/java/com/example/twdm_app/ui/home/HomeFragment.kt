@@ -1,6 +1,10 @@
 package com.example.twdm_app.ui.home
 
+import android.content.Context
+import android.net.wifi.WifiInfo
+import android.net.wifi.WifiManager
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,9 +33,28 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
 
         val textView: TextView = binding.textHome
+        textView.movementMethod = ScrollingMovementMethod()
+
         homeViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
+
+        binding.button3.setOnClickListener {
+            val wifiManager = this.context?.getSystemService(Context.WIFI_SERVICE) as WifiManager;
+            val wifiInfo = wifiManager.connectionInfo;
+            if (wifiInfo !== null)
+            {
+                homeViewModel.onWifiUpdate(wifiInfo.toString().replace(",","\n"))
+            }
+        }
+
+        val wifiManager = this.context?.getSystemService(Context.WIFI_SERVICE) as WifiManager;
+        val wifiInfo = wifiManager.connectionInfo;
+        if (wifiInfo !== null)
+        {
+            homeViewModel.onWifiUpdate(wifiInfo.toString().replace(",","\n"))
+        }
+
         return root
     }
 
