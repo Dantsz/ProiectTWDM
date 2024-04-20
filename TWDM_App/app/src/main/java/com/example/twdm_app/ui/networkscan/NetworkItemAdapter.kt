@@ -1,4 +1,4 @@
-package com.example.twdm_app.ui.dashboard
+package com.example.twdm_app.ui.networkscan
 
 import android.view.LayoutInflater
 import android.view.View

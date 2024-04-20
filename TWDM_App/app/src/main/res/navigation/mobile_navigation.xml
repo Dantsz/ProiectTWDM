@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.twdm_app.ui.dashboard.DashboardFragment"
+        android:name="com.example.twdm_app.ui.networkscan.WiFiScanFragment"
         android:label="@string/title_wifi"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_wifiscan" />
 
     <fragment
         android:id="@+id/navigation_notifications"

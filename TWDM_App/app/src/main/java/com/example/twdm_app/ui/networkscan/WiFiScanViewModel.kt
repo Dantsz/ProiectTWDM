@@ -1,4 +1,4 @@
-package com.example.twdm_app.ui.dashboard
+package com.example.twdm_app.ui.networkscan
 
 import android.net.wifi.ScanResult
 import androidx.lifecycle.LiveData
@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModel
 class WiFiScanViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is dashboard Fragment"
+        value = "This should display available networks"
     }
     val text: LiveData<String> = _text
 
@@ -21,7 +21,4 @@ class WiFiScanViewModel : ViewModel() {
     {
         _scanResults.value = results
     }
-
-
-
 }
