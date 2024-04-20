@@ -15,11 +15,11 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.twdm_app.databinding.FragmentDashboardBinding
+import com.example.twdm_app.databinding.FragmentWifiscanBinding
 
-class DashboardFragment : Fragment() {
+class WiFiScanFragment : Fragment() {
 
-    private var _binding: FragmentDashboardBinding? = null
+    private var _binding: FragmentWifiscanBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -64,9 +64,9 @@ class DashboardFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val dashboardViewModel =
-            ViewModelProvider(this)[DashboardViewModel::class.java]
+            ViewModelProvider(this)[WiFiScanViewModel::class.java]
 
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        _binding = FragmentWifiscanBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textDashboard
@@ -92,7 +92,7 @@ class DashboardFragment : Fragment() {
     private fun scanSuccess(context: Context) {
         val wifiManager = context.getSystemService(Context.WIFI_SERVICE) as WifiManager
         val dashboardViewModel =
-            ViewModelProvider(this)[DashboardViewModel::class.java]
+            ViewModelProvider(this)[WiFiScanViewModel::class.java]
         val results = wifiManager.scanResults
         dashboardViewModel.onScanUpdate(results)
 
