@@ -8,7 +8,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import com.example.twdm_app.databinding.FragmentCommunicationBinding
+import kotlinx.coroutines.launch
+import java.net.Socket
+import java.util.Scanner
 
 class CommunicationFragment : Fragment() {
 
@@ -34,9 +38,30 @@ class CommunicationFragment : Fragment() {
             textView.text = it
         }
 
-       binding.button2.setOnClickListener {
-           Log.d("Button", "Clicked")
-       }
+        communicationViewModel.response.observe (viewLifecycleOwner) {
+            binding.responseText.text = it
+        }
+
+        binding.button2.setOnClickListener {
+            val network_thread = Thread {
+                Log.d("WIFI", "Clicked send tcp")
+                val address: String = binding.addrText.text.toString()
+                val port: Int = binding.portText.text.toString().toInt()
+                val connstr = "$address:$port";
+
+                Log.d("WIFI", "Clicked send tcp, connecting to $connstr")
+                val client = Socket(address, port)
+                Log.d("WIFI", "Sending the message")
+                val data = binding.messageText.text.toString() + '\n'
+                client.getOutputStream().write(data.toByteArray())
+                Log.d("WIFI", "MessageSent, waiting for response")
+                val scanner = Scanner(client.getInputStream())
+                val resp = scanner.nextLine()
+                Log.d("WIFI", "Got response!$resp")
+                communicationViewModel.onResponse(resp)
+            }
+            network_thread.start()
+        }
 
         return root
     }
