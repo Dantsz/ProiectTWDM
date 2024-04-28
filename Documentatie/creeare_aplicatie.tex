@@ -18,5 +18,21 @@ Sablonul pentru acest proiect poate fi descarcat de pe GitHub: \url{https://gith
           \end{figure}
 \end{enumerate}
 \subsubsection{Structura proiectului}
-\paragraph{Android Component Architecture}
+Un proiect Android are o structura specifica, in care fisierele sunt organizate in directoare specifice.
+\begin{itemize}
+    \item \texttt{Fisierul manifest} descrie proprietati ale aplicatiei, cum ar fi permisiunile necesare.
+    \item \texttt{Folderul kotlin + java} contine codul sursa al aplicatiei.
+    \item \texttt{Folderul res} contine fisiere xml care descriu interfata grafica, imagini, string-uri si alte resurse.
+\end{itemize}
+\paragraph{Model View ViewModel}
+Aplicatia foloseste arhitectura MVVM, care separa logica de afisare de logica de business.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{figs/mvvm.png}
+    \caption{Arhitectura MVVM}
+    \label{fig:mvvm}
+\end{figure}
+In contextul acestei aplicatii fiecare fereastra are un ViewModel asociat, care defineste
+datele si operatiile care pot fi efectuate pe aceste date.
+
 \subsection{Rulare}
