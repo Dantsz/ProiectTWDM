@@ -17,6 +17,13 @@ Daca am apela metoda \textit{toString()} pe acest obiect, am obtine un sir de pr
 \end{lstlisting}
 Schimband virgulele cu caractere de linie noua, le putem afisa intr-un TextView.
 \subsubsection{Afisarea informatiilor in interfata grafica}
+Pentru a afisa informatiile in interfata grafica, trebuie apelam metoda \textit{onWifiUpdate} a ViewModel-ului cu informatia primita
+in momentul in care butonul de refresh este apasat.
+\begin{lstlisting}[language=Kotlin]
+    binding.refreshButton.setOnClickListener {
+        viewModel.onWifiUpdate(wifiInfo.toString().replace(", ", "\n"))
+    }
+\end{lstlisting}
 \subsubsection{Rezultat}
 
 Ruland programul folosind emulatorul, putem observa informatiile afisate in interfata grafica.
