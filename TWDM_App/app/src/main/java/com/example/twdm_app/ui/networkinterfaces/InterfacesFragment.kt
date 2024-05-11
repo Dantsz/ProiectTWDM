@@ -1,7 +1,6 @@
-package com.example.twdm_app.ui.home
+package com.example.twdm_app.ui.networkinterfaces
 
 import android.content.Context
-import android.net.wifi.WifiInfo
 import android.net.wifi.WifiManager
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
@@ -14,7 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.twdm_app.databinding.FragmentHomeBinding
 
-class HomeFragment : Fragment() {
+class InterfacesFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
 
@@ -28,7 +27,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val homeViewModel =
-            ViewModelProvider(this)[HomeViewModel::class.java]
+            ViewModelProvider(this)[InterfacesViewModel::class.java]
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root

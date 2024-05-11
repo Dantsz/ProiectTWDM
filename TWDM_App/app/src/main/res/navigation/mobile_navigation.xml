@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.twdm_app.ui.home.HomeFragment"
+        android:name="com.example.twdm_app.ui.networkinterfaces.InterfacesFragment"
         android:label="@string/title_info"
         tools:layout="@layout/fragment_home" />
 

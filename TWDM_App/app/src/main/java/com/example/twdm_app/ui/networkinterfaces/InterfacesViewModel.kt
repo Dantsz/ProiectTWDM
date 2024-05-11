@@ -1,10 +1,10 @@
-package com.example.twdm_app.ui.home
+package com.example.twdm_app.ui.networkinterfaces
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class HomeViewModel : ViewModel() {
+class InterfacesViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "Wi-fi data not available"
